@@ -58,8 +58,9 @@ def detect(imgfile):
        cv2.rectangle(origimg, p1, p2, (0,255,0))
        p3 = (max(p1[0], 15), max(p1[1], 15))
        title = "%s:%.2f" % (CLASSES[int(cls[i])], conf[i])
-       cv2.putText(origimg, title, p3, cv2.FONT_ITALIC, 0.6, (0, 255, 0), 1)
-    cv2.imshow("SSD", origimg)
+       tmp = cv2.putText(origimg, title, p3, cv2.FONT_ITALIC, 0.6, (0, 255, 0), 1)
+       cv2.imwrite('./test.png',tmp)
+    # cv2.imshow("SSD", origimg)
  
     k = cv2.waitKey(0) & 0xff
         #Exit if ESC pressed
